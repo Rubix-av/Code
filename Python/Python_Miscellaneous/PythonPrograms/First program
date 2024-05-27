@@ -1,0 +1,12 @@
+import turtle
+window = turtle.Screen()
+babbage = turtle.Turtle()
+babbage.left(70)
+babbage.forward(100)
+babbage.right(140)
+babbage.forward(100)
+babbage.backward(50)
+babbage.right(110)
+babbage.forward(34.5)
+babbage.hideturtle()
+window.exitonclick()

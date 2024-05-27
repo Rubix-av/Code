@@ -1,0 +1,18 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main{
+	public static void main(String[] args) {
+		
+		try {
+			FileWriter writer = new FileWriter("poem.txt");
+			writer.write("Twinkle \nTwinkle \nLittle \nStar");
+			writer.append("\n(A poem by Akshobh)");
+			writer.close();
+
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

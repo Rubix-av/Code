@@ -1,0 +1,32 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Main{
+	public static void main(String[] args) {
+		
+		Queue<String> queue = new LinkedList<String>();
+		
+		queue.offer("Karen");
+		queue.offer("Chad");
+		queue.offer("Steve");
+		queue.offer("Harold");
+		
+		//checks if our queue is empty or not
+		System.out.println(queue.isEmpty());
+		
+		//This returns the size (or length) of our queue
+		System.out.println(queue.size());
+		
+		
+		System.out.println(queue.contains("Harold"));
+		
+		//Similar to stack, this won't remove the first object instead it will return it.
+		System.out.println(queue.peek());
+		
+		//This will remove the first element in our queue, it won't throw any error in case of empty queue
+		queue.poll();
+		
+		System.out.println(queue);
+		System.out.println(queue.getClass());
+	}
+}

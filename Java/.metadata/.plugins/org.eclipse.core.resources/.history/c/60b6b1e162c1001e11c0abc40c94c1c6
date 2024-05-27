@@ -1,0 +1,41 @@
+import java.util.LinkedList;
+
+public class Main{
+	public static void main(String[] args) {
+		
+		LinkedList<String> linkedList = new LinkedList<String>();
+		
+		//LinkedList as a Stack Data Structure
+		/*
+		linkedList.push("A");
+		linkedList.push("B");
+		linkedList.push("C");
+		linkedList.push("D");
+		linkedList.push("F");
+		linkedList.pop();
+		*/
+		
+		//Linked List as a Queue Data Structure
+		linkedList.offer("A");
+		linkedList.offer("B");
+		linkedList.offer("C");
+		linkedList.offer("D");
+		linkedList.offer("F");
+		//linkedList.poll();
+		
+		//Adds letter "E" instead of replacing to index number 4, i.e. 5th position
+		linkedList.add(4,"E");
+		linkedList.remove("E"); //removes first occurrence of specified element
+		
+		//returns index number of specified element
+		System.out.println(linkedList.indexOf("F"));
+		
+		//return first element of LinkedList
+		System.out.println(linkedList.peekFirst());
+		
+		//return last element of LinkedList
+		System.out.println(linkedList.peekLast());
+		
+		System.out.println(linkedList);
+	}
+}
