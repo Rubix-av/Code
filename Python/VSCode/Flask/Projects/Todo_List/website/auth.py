@@ -24,7 +24,7 @@ def login():
         else:
             flash("User doesn't exist!", category='error')
 
-    return render_template("login.html")
+    return render_template("login.html", user=current_user)
 
 # Sign-Up page backend
 @auth.route("/sign-up", methods=["GET","POST"])
@@ -58,7 +58,7 @@ def sign_up():
             flash("User created successfully", category='success')
             return redirect(url_for("views.home"))
 
-    return render_template("sign-up.html")
+    return render_template("sign-up.html", user=current_user)
 
 @auth.route("logout")
 @login_required

@@ -19,4 +19,29 @@
 
     </form>
 </div>
+
+<style>
+  .table-bordered {
+    border: 2px solid; /* Blue border */
+    border-radius: 80px !important; /* Rounded corners */
+  }
+  .table-bordered td {
+    padding: 10px; /* Add padding inside the cells */
+  }
+</style>
+
+{% if user.is_authenticated %}
+  <div class="container mt-5">
+    <table class="table-bordered border-secondary" align="center">
+      <tbody>
+      <tr>
+        <td>Logged in as <strong>{{user.email}}</strong></td>
+        <td><a class="btn btn-danger" href="/logout">Logout</a></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+{% else %}
+{% endif %}
+
 {% endblock  %}
