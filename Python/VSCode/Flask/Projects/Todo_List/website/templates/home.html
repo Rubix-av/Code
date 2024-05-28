@@ -2,23 +2,50 @@
 
 {% block content %}
 {% for attr in user_dict.keys() %}
-  <div class="container">
+  <div class="container mt-1">
     <div class="accordion" id="{{attr}}Example">
     <div class="accordion-item">
       <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{attr}}" aria-expanded="true" aria-controls="collapse{{attr}}">
           {% set capitalized_attr = attr|capitalize %}
-          {{ capitalized_attr }}
+          <strong>{{ capitalized_attr }}</strong>
         </button>
       </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#{{attr}}Example">
+      <div id="collapse{{attr}}" class="accordion-collapse collapse" data-bs-parent="#{{attr}}Example">
       <div class="accordion-body">
           {% set temp = attr %}
-          {{ user[temp] }}
+          {% if temp == "email" %}
+            {{ user[temp] }}
+          {% else %}
+            {{ user[temp]|capitalize }}
+          {% endif %}
       </div>
     </div>
     </div>
   </div>
 </div>
+<style>
+  .table-bordered {
+    border: 2px solid; /* Blue border */
+    border-radius: 80px !important; /* Rounded corners */
+  }
+  .table-bordered td {
+    padding: 10px; /* Add padding inside the cells */
+  }
+  </style>
+
+  {% if user.is_authenticated %}
+  <div class="container-fluid mt-5 fixed-bottom flex-grow-1" style="margin-top: auto;">
+    <table class="table-bordered border-secondary" align="center">
+      <tbody>
+      <tr>
+        <td>Logged in as <strong>{{user.email}}</strong></td>
+        <td><a class="btn btn-danger" href="/logout">Logout</a></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+  {% endif %}
+</body>
 {% endfor %}
 {% endblock  %}

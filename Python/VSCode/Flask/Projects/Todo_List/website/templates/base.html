@@ -10,7 +10,7 @@
   <title>{% block title %}Home{% endblock %}</title>
 </head>
 
-<body>
+<body >
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
   <div class="container-fluid">
     {# <a class="navbar-brand" href="#">Navbar</a> #}
@@ -49,8 +49,11 @@
     {% endif %}
   {% endwith %}
 
-  {% block content %}
-  {% endblock %}
-</body>
+  <div class="container" style="padding-bottom: 5rem;">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  
 
 </html>
