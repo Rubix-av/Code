@@ -19,7 +19,7 @@ def login():
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
                 flash("Login successfull!", category='success')
-                return redirect(url_for("views.home"))
+                return redirect(url_for("views.profile"))
             else:
                 flash("Incorrect password!", category='error')
                 return redirect(url_for("auth.login"))
@@ -72,7 +72,7 @@ def sign_up():
             
             login_user(new_user, remember=True)
             flash("User created successfully", category='success')
-            return redirect(url_for("views.home"))
+            return redirect(url_for("views.profile"))
         
         user_dict = {
             "email": email,
