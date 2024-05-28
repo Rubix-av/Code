@@ -1,9 +1,11 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-  <h1>Name : {{user.name}}</h1>
+<div class="container-fluid text-center mt-4">
   <h1>Email : {{user.email}}</h1>
+  <h1>Name : {{user.name}}</h1>
+  <h1>Age : {{user.age}}</h1>
+  <h1>Gender : {{user.gender}}</h1>
   <h1>Date : {{user.date}}</h1>
 </div>
 {% endblock  %}

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary mb-4" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
   <div class="container-fluid">
     {# <a class="navbar-brand" href="#">Navbar</a> #}
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
       <div class="navbar-nav">
         {% if user.is_authenticated %}
         <a href="/home" class="nav-link active">Home</a>
-        <a href="/logout" class="nav-link active">Logout</a>
+        <a href="/logout" class="nav-link">Logout</a>
         {% else %}
         <a href="/login" class="nav-link active">Login</a>
         <a href="/sign-up" class="nav-link active">Sign Up</a>
@@ -34,9 +34,15 @@
     {% if messages %}
         {% for category, message in messages %}
             {% if category == 'success' %}
-                <p style="color: green">{{ message }}</p>
+                <div id="close" class="alert alert-success alert-dismissible fade show">
+                  {{message}}
+                  <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="alert"></button>
+                </div>
             {% else %}
-                <p style="color: red">{{ message }}</p>
+                <div id="close" class="alert alert-danger alert-dismissible fade show">
+                  {{message}}
+                  <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="alert"></button>
+                </div>
             {% endif %}
         {% endfor %}
     {% endif %}
@@ -44,7 +50,6 @@
 
   {% block content %}
   {% endblock %}
-  
 </body>
 
 </html>
