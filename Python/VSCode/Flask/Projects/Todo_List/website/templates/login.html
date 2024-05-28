@@ -5,12 +5,28 @@
 
 {% if user.is_authenticated %}
 <div id="close" class="alert alert-warning alert-dismissible fade show">
-  First logout from <strong>{{user.email}}</strong>
+  First logout from <strong>{{user.email}}  </strong>
   <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="alert"></button>
 </div>
 {% else %}
 {% endif %}
 <div class="container mt-3" align="center">
+    {% if user.is_authenticated %}
+      <form method="POST" class="form-control">
+        <h2 align="center">Login</h2> <br>
+
+        <div class="form-floating mb-4">
+          <input disabled type="email" id="email" name="email" placeholder="Enter Email" class="form-control">
+          <label for="email">Email : </label>
+        </div>
+        
+        <div class="form-floating mb-3">
+          <input disabled type="password" id="password" name="password" placeholder="Enter Password" class="form-control">
+          <label type="password">Password : </label>
+        </div>
+          <button class="btn btn-secondary" type="submit" id="login">Login</button>
+    </form>
+    {% else %}
     <form method="POST" class="form-control">
         <h2 align="center">Login</h2> <br>
 
@@ -30,6 +46,7 @@
           <button class="btn btn-primary" type="submit" id="login">Login</button>
         {% endif %}
     </form>
+    {% endif %}
 </div>
 
 {% endblock  %}
