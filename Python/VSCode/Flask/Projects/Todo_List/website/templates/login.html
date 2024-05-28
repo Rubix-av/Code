@@ -11,42 +11,30 @@
 {% else %}
 {% endif %}
 <div class="container mt-3" align="center">
-    {% if user.is_authenticated %}
-      <form method="POST" class="form-control">
-        <h2 align="center">Login</h2> <br>
 
-        <div class="form-floating mb-4">
-          <input disabled type="email" id="email" name="email" placeholder="Enter Email" class="form-control">
-          <label for="email">Email : </label>
-        </div>
-        
-        <div class="form-floating mb-3">
-          <input disabled type="password" id="password" name="password" placeholder="Enter Password" class="form-control">
-          <label type="password">Password : </label>
-        </div>
-          <button class="btn btn-secondary" type="submit" id="login">Login</button>
-    </form>
-    {% else %}
-    <form method="POST" class="form-control">
-        <h2 align="center">Login</h2> <br>
+  {# checks if user is is authenticated and decides input disabled or not #}
+  {% if user.is_authenticated %}
+    {% set status = "disabled" %}
+  {% else %}
+    {% set status = "" %}
+  {% endif %}
 
-        <div class="form-floating mb-4">
-          <input type="email" id="email" name="email" placeholder="Enter Email" class="form-control">
-          <label for="email">Email : </label>
-        </div>
-        
-        <div class="form-floating mb-3">
-          <input type="password" id="password" name="password" placeholder="Enter Password" class="form-control">
-          <label type="password">Password : </label>
-        </div>
+  {# login input form #}
+  <form method="POST" class="form-control" disabled>
+      <h2 align="center">Login</h2> <br>
 
-        {% if user.is_authenticated %}
-          <button class="btn btn-primary disabled hover" type="submit" id="login">Login</button>
-        {% else %}
-          <button class="btn btn-primary" type="submit" id="login">Login</button>
-        {% endif %}
-    </form>
-    {% endif %}
+      <div class="form-floating mb-4">
+        <input {{status}} type="email" id="email" name="email" placeholder="Enter Email" class="form-control">
+        <label for="email">Email : </label>
+      </div>
+      
+      <div class="form-floating mb-3">
+        <input {{status}} type="password" id="password" name="password" placeholder="Enter Password" class="form-control">
+        <label type="password">Password : </label>
+      </div>
+        <button {{status}} class="btn btn-primary" type="submit" id="login">Login</button>
+  </form>
+    {# {% endif %} #}
 </div>
 
 {% endblock  %}
