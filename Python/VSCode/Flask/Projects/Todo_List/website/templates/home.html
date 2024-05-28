@@ -1,11 +1,24 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="container-fluid text-center mt-4">
-  <h1>Email : {{user.email}}</h1>
-  <h1>Name : {{user.name}}</h1>
-  <h1>Age : {{user.age}}</h1>
-  <h1>Gender : {{user.gender}}</h1>
-  <h1>Date : {{user.date}}</h1>
+{% for attr in user_dict.keys() %}
+  <div class="container">
+    <div class="accordion" id="{{attr}}Example">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          {% set capitalized_attr = attr|capitalize %}
+          {{ capitalized_attr }}
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#{{attr}}Example">
+      <div class="accordion-body">
+          {% set temp = attr %}
+          {{ user[temp] }}
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
+{% endfor %}
 {% endblock  %}

@@ -8,11 +8,20 @@ auth = Blueprint("auth", __name__)
 # Login page backend
 @auth.route("/login", methods=["GET","POST"])
 def login():
+    user_dict = {}
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
 
         user = Users.query.filter_by(email=email).first()
+
+        user_dict = {
+            "email": user.email,
+            "name": user.name,
+            "age": user.age,
+            "gender": user.gender,
+            "date": user.date
+        }
 
         if user:
             if check_password_hash(user.password, password):
@@ -23,8 +32,7 @@ def login():
                 flash("Incorrect password!", category='error')
         else:
             flash("User doesn't exist!", category='error')
-
-    return render_template("login.html", user=current_user)
+    return render_template("login.html", user_dict=user_dict, user=current_user)
 
 # Sign-Up page backend
 @auth.route("/sign-up", methods=["GET","POST"])
@@ -38,6 +46,14 @@ def sign_up():
         password2 = request.form.get("password2")
 
         user = Users.query.filter_by(email=email).first()
+
+        user_dict = {
+            "email": email,
+            "name": name,
+            "age": age,
+            "gender": gender,
+            "date": user.date
+        }
 
         if user:
             flash("User already exists!", category='error')
@@ -58,7 +74,7 @@ def sign_up():
             flash("User created successfully", category='success')
             return redirect(url_for("views.home"))
 
-    return render_template("sign-up.html", user=current_user)
+    return render_template("sign-up.html", user_dict=user_dict, user=current_user)
 
 @auth.route("logout")
 @login_required
