@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_required, current_user
 from .model import db, Users, Todo
 
@@ -30,10 +30,19 @@ def todo():
         title = request.form.get("todoTitle")
         desc = request.form.get("todoDesc")
 
-        new_todo = Todo(title=title, desc=desc, user_id=current_user.id)
-        db.session.add(new_todo)
-        db.session.commit()
+        if not title:
+            flash("Add a title!", category='error')
+            return redirect(url_for("views.todo"))
+        if not desc:
+            flash("Add a description!", category='error')
+            return redirect(url_for("views.todo"))
+        
+        else:
+            new_todo = Todo(title=title, desc=desc, user_id=current_user.id)
+            db.session.add(new_todo)
+            db.session.commit()
 
-        return redirect(url_for("views.todo"))
+            flash("Todo added successfully!", category='success')
+            return redirect(url_for("views.todo"))
 
     return render_template("todo.html", user=current_user)
