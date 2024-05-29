@@ -2,6 +2,14 @@
 
 {% block specific_content %}
 
+{# styling #}
+<style>
+  .bold-and-thick {
+    font-weight: bold;
+    border: 3px solid black; /* Adjust thickness and color as needed */
+  }
+</style>
+
 {# form container #}
 <div class="container my-3">
   <h2>Add a Todo</h2>
@@ -26,29 +34,46 @@
 
 {# table container #}
 <div class="container my-3">
+<hr >
   <h2>Your Todos</h2>
-  <table class="table">
+  
+  {% if allTodo|length == 0 %}
+    <div class="alert alert-warning text-center fs-3 mt-4">
+      <span><strong>Start Adding Todos</strong></span>
+    </div>
+  {% else %}
+    <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Title</th>
         <th scope="col">Description</th>
         <th scope="col">Time</th>
+        <th scope="col">Result</th>
       </tr>
     </thead>
     <tbody>
       
       {% for todo in allTodo %}
-      <tr>
-        <th scope="row">{{loop.index}}</th>
-        <td>{{todo.title}}</td>
-        <td>{{todo.desc}}</td>
-        <td>{{todo.date_created}}</td>
-      </tr>
+        <tr>
+          <th scope="row">{{loop.index}}</th>
+          <td>{{todo.title}}</td>
+          <td>{{todo.desc}}</td>
+          <td>{{todo.date_created}}</td>
+          <td>
+            <div class="btn-group" role="group" aria-label="DeleteDoneButtons">
+              <a href="/update/{{todo.sno}}" type="button" class="btn btn-primary">Update</a>
+              <div class="vh bold-and-thick"></div>
+              <a href="/delete/{{todo.sno}}" type="button" class="btn btn-danger">Delete</a>
+            </div>
+          </td>
+        </tr>
       {% endfor %}
 
     </tbody>
-  </table>
+    </table>
+  {% endif %}
+
 </div>
 {% endblock %}
 

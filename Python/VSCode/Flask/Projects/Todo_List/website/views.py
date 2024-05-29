@@ -57,3 +57,24 @@ def todo():
     # todo_exists is replaced with existing_todo if it exists else with ""
     return render_template("todo.html", user=current_user, allTodo=todo_exists)
         
+@views.route("/delete/<int:sno>")
+def delete(sno):
+    delete_todo = Todo.query.filter_by(sno=sno).first()
+    db.session.delete(delete_todo)
+    db.session.commit()
+    return redirect(url_for("views.todo"))
+
+@views.route("/update/<int:sno>", methods=["GET","POST"])
+def update(sno):
+    if request.method == "POST":
+        title = request.form.get("todoTitle")
+        desc = request.form.get("todoDesc")
+        todo = Todo.query.filter_by(sno=sno).first()
+        todo.title = title
+        todo.desc = desc
+        db.session.add(todo)
+        db.session.commit()
+        return redirect(url_for("views.todo"))
+
+    update_todo = Todo.query.filter_by(sno=sno).first()
+    return render_template("todo_update.html", user=current_user, todo=update_todo)
