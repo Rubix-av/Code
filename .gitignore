@@ -1,8 +1,5 @@
 GitHub/
 .env/
 __pycache__/
-<<<<<<< HEAD
-=======
 *.py[cod]
 *$py.class
->>>>>>> feature/new-todo-page
