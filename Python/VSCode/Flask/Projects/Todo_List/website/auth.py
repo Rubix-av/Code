@@ -8,6 +8,10 @@ auth = Blueprint("auth", __name__)
 # Login page backend
 @auth.route("/login", methods=["GET","POST"])
 def login():
+    if current_user.is_authenticated:
+        flash("You are already logged in!", category='error')
+        return redirect(url_for("views.profile"))
+
     user_dict = {}
     if request.method == "POST":
         email = request.form.get("email")
@@ -32,6 +36,10 @@ def login():
 # Sign-Up page backend
 @auth.route("/sign-up", methods=["GET","POST"])
 def sign_up():
+    if current_user.is_authenticated:
+        flash("You are already logged in!", category='error')
+        return redirect(url_for("views.profile"))
+    
     user_dict = {}
     if request.method == "POST":
         email = request.form.get("email")
