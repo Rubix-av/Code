@@ -26,6 +26,12 @@ def profile():
 @views.route("/todo", methods=["GET","POST"])
 @login_required
 def todo():
+
+    # checks if todo exists
+    existing_todo = Todo.query.filter_by(user_id=current_user.id).all()
+    todo_exists = existing_todo if existing_todo else ""
+
+    # checks if request method is POST
     if request.method=="POST":
         title = request.form.get("todoTitle")
         desc = request.form.get("todoDesc")
@@ -35,16 +41,19 @@ def todo():
             return redirect(url_for("views.todo"))
         if not desc:
             flash("Add a description!", category='error')
-            return redirect(url_for("views.todo"))
+            return redirect(url_for("views.todo"))      
         
         else:
             new_todo = Todo(title=title, desc=desc, user_id=current_user.id)
             db.session.add(new_todo)
             db.session.commit()
 
-            allTodo = Todo.query.all()
+            allTodo = Todo.query.filter_by(user_id=current_user.id).all()
 
+            # Adds more todos in front of our already existing todo
             flash("Todo added successfully!", category='success')
             return render_template("todo.html", user=current_user, allTodo=allTodo)
 
-    return render_template("todo.html", user=current_user, allTodo=allTodo)
+    # todo_exists is replaced with existing_todo if it exists else with ""
+    return render_template("todo.html", user=current_user, allTodo=todo_exists)
+        
