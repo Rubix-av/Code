@@ -19,7 +19,7 @@ def login():
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
                 flash("Login successfull!", category='success')
-                return redirect(url_for("views.home"))
+                return redirect(url_for("views.profile"))
             else:
                 flash("Incorrect password!", category='error')
                 return redirect(url_for("auth.login"))
@@ -27,14 +27,7 @@ def login():
             flash("User doesn't exist!", category='error')
             return redirect(url_for("auth.login"))
         
-        user_dict = {
-                "email": user.email,
-                "name": user.name,
-                "age": user.age,
-                "gender": user.gender,
-                "date": user.date
-            }
-    return render_template("login.html", user_dict=user_dict, user=current_user)
+    return render_template("login.html", user=current_user)
 
 # Sign-Up page backend
 @auth.route("/sign-up", methods=["GET","POST"])
@@ -72,16 +65,9 @@ def sign_up():
             
             login_user(new_user, remember=True)
             flash("User created successfully", category='success')
-            return redirect(url_for("views.home"))
-        
-        user_dict = {
-            "email": email,
-            "name": name,
-            "age": age,
-            "gender": gender,
-            "date": user.date
-        }
-    return render_template("sign-up.html", user_dict=user_dict, user=current_user)
+            return redirect(url_for("views.profile"))
+
+    return render_template("sign-up.html", user=current_user)
 
 @auth.route("logout")
 @login_required
