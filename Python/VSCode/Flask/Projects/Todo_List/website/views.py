@@ -42,7 +42,9 @@ def todo():
             db.session.add(new_todo)
             db.session.commit()
 
-            flash("Todo added successfully!", category='success')
-            return redirect(url_for("views.todo"))
+            allTodo = Todo.query.all()
 
-    return render_template("todo.html", user=current_user)
+            flash("Todo added successfully!", category='success')
+            return render_template("todo.html", user=current_user, allTodo=allTodo)
+
+    return render_template("todo.html", user=current_user, allTodo=allTodo)
