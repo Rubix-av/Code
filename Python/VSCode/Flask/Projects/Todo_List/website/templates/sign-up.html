@@ -1,42 +1,45 @@
 {% extends "base.html" %} {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
+
+{# Warning message flash in case user is allowed to hit "/login" while authenticated #}
+{# {% if user.is_authenticated %}
 <div id="close" class="alert alert-warning alert-dismissible fade show">
   First logout from <strong>{{user.email}}</strong>
   <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="alert"></button>
 </div>
 {% else %}
-{% endif %}
+{% endif %} #}
 
 <div class="container" align="center">
 
-  {% if user.is_authenticated %}
+  {# checks if user is is authenticated and decides input disabled or not #}
+  {# {% if user.is_authenticated %}
   {% set status = "disabled" %}
   {% else %}
   {% set status = "" %}
-  {% endif %}
+  {% endif %} #}
 
   {# sign-up form #}
   <form method="POST" class="form-control">
     <h2>Sign Up</h2>
     <div class="form-floating mb-3">
-      <input {{status}} class="form-control" type="email" id="email" name="email" placeholder="Enter Email">
+      <input class="form-control" type="email" id="email" name="email" placeholder="Enter Email">
       <label for="email">Email : </label>
     </div>
 
     <div class="form-floating mb-3">
-      <input {{status}} class="form-control" type="text" id="name" name="name" placeholder="Enter Name">
+      <input class="form-control" type="text" id="name" name="name" placeholder="Enter Name">
       <label for="name">Name : </label>
     </div>
 
     <div class="form-floating mb-3">
-      <input {{status}} class="form-control" type="number" id="age" name="age" placeholder="Enter Age">
+      <input class="form-control" type="number" id="age" name="age" placeholder="Enter Age">
       <label for="age">Age : </label>
     </div>
 
     <div class="form-floating mb-3">
-      <select {{status}} class="form-select" id="gender" name="gender">
+      <select class="form-select" id="gender" name="gender">
         <option value="" disabled>Select a gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
@@ -46,18 +49,18 @@
     </div>
 
     <div class="form-floating mb-3">
-      <input {{status}} class="form-control" type="password" id="password1" name="password1"
+      <input class="form-control" type="password" id="password1" name="password1"
         placeholder="Enter Password">
       <label for="password1">Password : </label>
     </div>
 
     <div class="form-floating mb-3">
-      <input {{status}} class="form-control" type="password" id="password2" name="password2"
+      <input class="form-control" type="password" id="password2" name="password2"
         placeholder="Confirm Password"">
     <label for=" password2">Retype Password : </label>
     </div>
 
-    <button {{status}} class="btn btn-primary" type="submit" id="button">Sign Up</button>
+    <button class="btn btn-primary" type="submit" id="button">Sign Up</button>
   </form>
 
 </div>
