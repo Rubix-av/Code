@@ -1,0 +1,61 @@
+{% extends "views_base.html" %} {% block title %}Todo{% endblock %}
+
+{% block specific_content %}
+
+{# form container #}
+<div class="container my-3">
+  <h2>Add a Todo</h2>
+  <form method="POST">
+
+    {# Todo Title #}
+    <div class="mb-3">
+      <label for="todoTitle" class="form-label">Todo Title</label>
+      <input type="text" class="form-control" id="todoTitle" name="todoTitle" aria-describedby="emailHelp">
+    </div>
+
+    {# Todo Description #}
+    <div class="mb-3">
+      <label for="todoDesc" class="form-label">Todo Description</label>
+      <input type="text" class="form-control" id="todoDesc" name="todoDesc">
+    </div>
+
+    {# Submit Button #}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{# table container #}
+<div class="container my-3">
+  <h2>Your Todos</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
