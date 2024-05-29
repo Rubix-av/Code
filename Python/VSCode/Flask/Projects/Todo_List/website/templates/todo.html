@@ -3,27 +3,30 @@
 {% block specific_content %}
 
 {# form container #}
-<div class="container"> 
-  <form>
+<div class="container my-3">
+  <h2>Add a Todo</h2>
+  <form method="POST">
+
+    {# Todo Title #}
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      <label for="todoTitle" class="form-label">Todo Title</label>
+      <input type="text" class="form-control" id="todoTitle" name="todoTitle" aria-describedby="emailHelp">
     </div>
+
+    {# Todo Description #}
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <label for="todoDesc" class="form-label">Todo Description</label>
+      <input type="text" class="form-control" id="todoDesc" name="todoDesc">
     </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
+
+    {# Submit Button #}
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 
 {# table container #}
 <div class="container my-3">
+  <h2>Your Todos</h2>
   <table class="table">
     <thead>
       <tr>
