@@ -4,7 +4,7 @@ const symbols = ["(",")","/","+","-","*","=","."];
 function addToDisplay(a){
 
     //
-    if(input.value === "Error"){
+    if(input.value === "Error" || input.value === "NaN"){
         input.value = "";
     }
     else if(symbols.includes(input.value[input.value.length - 1]) && symbols.includes(a)){
