@@ -4,8 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
+  <div class="container">
+    <div class="calculator">
+
+      <input id="input" type="text" readonly>
+
+      <div class="row1" id="row">
+        <button id="clear" onclick="clearDisplay('C')">C</button>
+        <button id="symbols" onclick="addToDisplay('(')">(</button>
+        <button id="symbols" onclick="addToDisplay(')')">)</button>
+        <button id="symbols" onclick="addToDisplay('/')">/</button>
+      </div>
+
+      <div class="row2" id="row">
+        <button onclick="addToDisplay('7')">7</button>
+        <button onclick="addToDisplay('8')">8</button>
+        <button onclick="addToDisplay('9')">9</button>
+        <button id="symbols" onclick="addToDisplay('+')">+</button>
+        
+      </div>
+
+      <div class="row3" id="row">
+        <button onclick="addToDisplay('4')">4</button>
+        <button onclick="addToDisplay('5')">5</button>
+        <button onclick="addToDisplay('6')">6</button>
+        <button id="symbols" onclick="addToDisplay('-')">-</button>
+      </div>
+
+      <div class="row4" id="row">
+        <button onclick="addToDisplay('1')">1</button>
+        <button onclick="addToDisplay('2')">2</button>
+        <button onclick="addToDisplay('3')">3</button>
+        <button id="symbols" onclick="addToDisplay('*')">&times;</button>
+      </div>
+
+      <div class="row5" id="row">
+        <button onclick="addToDisplay('*0.01')">%</button>
+        <button onclick="addToDisplay('0')">0</button>
+        <button onclick="addToDisplay('.')">.</button>
+        <button id="equal" onclick="calculate()">=</button>
+      </div>
+
+    </div>
+  </div>
+
   <script src="script.js"></script>
+
 </body>
 </html>
