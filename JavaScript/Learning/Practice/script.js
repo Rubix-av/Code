@@ -1,3 +1,19 @@
-const userName = window.prompt("Enter your name")
+const input = document.getElementById("input");
 
-console.log(`Your name is ${userName}`)
+function addToDisplay(a){
+
+    input.value += a;
+}
+
+function clearDisplay(){
+    input.value = "";
+}
+
+function calculate(){
+    try{
+        input.value = eval(input.value);
+    }    
+    catch(error){
+        input.value = "Error";
+    }
+}
