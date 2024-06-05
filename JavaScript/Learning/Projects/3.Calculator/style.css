@@ -28,6 +28,7 @@ html{
     margin-bottom: 10px;
     border-radius: 5px;
     background-color: #f5f4e6;
+    overflow: scroll;
     color: #333;
 }
 .calculator button{
