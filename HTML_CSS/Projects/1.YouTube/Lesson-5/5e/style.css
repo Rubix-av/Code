@@ -1,0 +1,30 @@
+*{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+.p1{
+    color: tomato;
+    font-size: 10px;
+    margin-top: 7px;
+}
+.p2{
+    margin-bottom: 2px;
+}
+.p3{
+    font-size: 30px;
+}
+.p4{
+    font-weight: normal;
+    font-size: 12px;
+}
+.buy-btn{
+    background-color: rgb(44, 154, 209);
+    border: none;
+    color: white;
+    padding: 4px 9px;
+    border-radius: 10px;
+    font-size: 9px;
+}

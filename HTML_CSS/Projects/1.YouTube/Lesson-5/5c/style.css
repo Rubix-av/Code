@@ -1,0 +1,25 @@
+*{
+    font-family: Verdana, sans-serif;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.page-title{
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 4px;
+}
+.page-goal{
+    color: gray;
+    margin-bottom: 20px;
+}
+.page-description{
+    width: 310px;
+    margin-bottom: 20px;
+}
+.getStarted-btn{
+    background-color: rgb(76, 133, 76);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}

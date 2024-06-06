@@ -1,0 +1,27 @@
+*{
+    font-family: Arial, sans-serif;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.p1{
+    font-size: 30px;
+    margin-bottom: 3px;
+}
+.p1 span{
+    font-weight: normal;
+    font-size: 13px;
+    margin-left: 2px;
+    color: gray;
+}
+.p2{
+    color: green;
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+.p3{
+    color: gray;
+    font-size: 15px;
+}
+.p3 span{
+    color: tomato;
+}

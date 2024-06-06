@@ -1,0 +1,9 @@
+#sign-up{
+    background-color: rgb(46, 164, 79);
+    border: none;
+    color: white;
+    width: 80px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 2px;
+}
