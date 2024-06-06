@@ -1,0 +1,17 @@
+p{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.shop-title{
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.shop-description{
+    margin-bottom: 20px;
+}
+.shop-link{
+    color: cornflowerblue
+}

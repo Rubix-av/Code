@@ -1,0 +1,12 @@
+#request{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+#request:hover{
+    opacity: 0.85;
+}
+

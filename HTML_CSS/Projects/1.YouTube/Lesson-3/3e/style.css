@@ -1,0 +1,32 @@
+#apply{
+    background-color: rgb(10, 102, 194);
+    border: none;
+    color: white;
+    font-weight: bold;
+    width: 210px;
+    height: 30px;
+    border-radius: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+#apply:hover{
+    background-color: rgb(9, 92, 175);
+}
+#save{
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(10, 102, 194);
+    color: rgb(10, 102, 194);
+    font-weight: bold;
+    width: 70px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.15s, border-width 0.15s;
+}
+#save:hover{
+    background-color: rgb(238, 238, 238);
+    border-width: 2px;
+}

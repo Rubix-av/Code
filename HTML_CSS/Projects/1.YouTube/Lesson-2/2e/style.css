@@ -1,0 +1,21 @@
+#apply{
+    background-color: rgb(10, 102, 194);
+    border: none;
+    color: white;
+    font-weight: bold;
+    width: 210px;
+    height: 30px;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+#save{
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(10, 102, 194);
+    color: rgb(10, 102, 194);
+    font-weight: bold;
+    width: 70px;
+    height: 30px;
+    border-radius: 15px;
+}
