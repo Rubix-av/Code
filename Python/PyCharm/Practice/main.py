@@ -1,25 +1,33 @@
-connection = True
-paid = False
-internet = False
-online = True
+import timeit
 
-def go_online():
-    if not connection:
-        print("No connection...")
-        return
+def traditional_loop():
+    x = []
+    for i in range(1_000_000):
+        x.append(i**2)
+    return x
 
-    elif not paid:
-        print("User has not paid...")
-        return
+def comprehension():
+    return [i**2 for i in range(1_000_000)]
 
-    elif not internet:
-        print("No internet...")
-        return
+class Timer:
+    def __init__(self):
+        self.start = None
+        self.end = None
 
-    elif not online:
-        print("You are offline...")
-        return
+    def __enter__(self):
+        self.start = timeit.default_timer()
+        return self
 
-    print("You are online!")
+    def __exit__(self, *args):
+        self.end = timeit.default_timer()
+        self.interval = self.end - self.start
 
-go_online()
+# Time the traditional loop
+with Timer() as t:
+    traditional_loop()
+print(f'Traditional loop time: {t.interval:.5f} seconds')
+
+# Time the list comprehension
+with Timer() as t:
+    comprehension()
+print(f'Comprehension time: {t.interval:.5f} seconds')
