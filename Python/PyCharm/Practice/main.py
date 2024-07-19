@@ -1,33 +1,13 @@
-import timeit
+def odd_even(l: list[int]) -> list[bool]:
+    result_list: list[bool] = []
 
-def traditional_loop():
-    x = []
-    for i in range(1_000_000):
-        x.append(i**2)
-    return x
+    for num in l:
+        if num%2 == 0:
+            result_list.append(True)
+        else:
+            result_list.append(False)
 
-def comprehension():
-    return [i**2 for i in range(1_000_000)]
+    return result_list
 
-class Timer:
-    def __init__(self):
-        self.start = None
-        self.end = None
-
-    def __enter__(self):
-        self.start = timeit.default_timer()
-        return self
-
-    def __exit__(self, *args):
-        self.end = timeit.default_timer()
-        self.interval = self.end - self.start
-
-# Time the traditional loop
-with Timer() as t:
-    traditional_loop()
-print(f'Traditional loop time: {t.interval:.5f} seconds')
-
-# Time the list comprehension
-with Timer() as t:
-    comprehension()
-print(f'Comprehension time: {t.interval:.5f} seconds')
+num_list = [2,5,4,7,3,8,1,36,23]
+print(odd_even(num_list))
