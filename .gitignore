@@ -3,3 +3,10 @@ GitHub/
 __pycache__/
 *.py[cod]
 *$py.class
+/frontend/node_modules/
+/frontend/frontend/node_modules/
+/frontend/package-lock.json
+/frontend/frontend/package-lock.json
+/frontend/dist/
+/frontend/frontend/dist/
+
