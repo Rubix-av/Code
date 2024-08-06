@@ -9,4 +9,4 @@ __pycache__/
 /frontend/frontend/package-lock.json
 /frontend/dist/
 /frontend/frontend/dist/
-
+node_modules/
