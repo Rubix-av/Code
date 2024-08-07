@@ -11,5 +11,9 @@ CORS(app, resources={r"/*":{'origins':"*"}})
 def greeting():
     return("Hello, World")
 
+@app.route('/shark')
+def shark():
+    return("Shark 🦈!")
+
 if __name__ == "__main__":
     app.run(debug=True)
