@@ -3,8 +3,11 @@ import App from './App.vue'
 import router from './router'
 // install bootstrap first
 import 'bootstrap/dist/css/bootstrap.css';
+// importing bootstrapvue library
+import BootstrapVue from 'bootstrap-vue';
 
 Vue.config.productionTip = false
+Vue.use(BootstrapVue)
 
 new Vue({
   router,
