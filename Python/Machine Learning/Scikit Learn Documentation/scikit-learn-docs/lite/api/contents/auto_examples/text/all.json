@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2024-09-11T09:37:37.254466Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-09-11T09:37:33.074483Z",
+      "mimetype": null,
+      "name": "plot_document_classification_20newsgroups.ipynb",
+      "path": "auto_examples/text/plot_document_classification_20newsgroups.ipynb",
+      "size": 21519,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2024-09-11T09:37:37.254466Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-09-11T09:37:33.078483Z",
+      "mimetype": null,
+      "name": "plot_document_clustering.ipynb",
+      "path": "auto_examples/text/plot_document_clustering.ipynb",
+      "size": 22959,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2024-09-11T09:37:37.258466Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-09-11T09:37:33.086483Z",
+      "mimetype": null,
+      "name": "plot_hashing_vs_dict_vectorizer.ipynb",
+      "path": "auto_examples/text/plot_hashing_vs_dict_vectorizer.ipynb",
+      "size": 21217,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2024-09-11T09:37:37.258466Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2024-09-11T09:37:37.258466Z",
+  "mimetype": null,
+  "name": "text",
+  "path": "auto_examples/text",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
