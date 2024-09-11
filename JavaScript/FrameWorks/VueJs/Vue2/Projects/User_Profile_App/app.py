@@ -2,6 +2,7 @@ from flask import Flask
 import views
 from extensions import db, security
 from create_initial_data import create_data
+import resources
 
 def create_app():
     app = Flask(__name__)
@@ -24,6 +25,9 @@ def create_app():
         create_data(user_datastore)
 
     views.create_view(app, user_datastore)
+    
+    # connect flask to flask_restful
+    resources.api.init_app(app)
     
     app.config["WTF_CSRF_CHECK_DEFAULT"] = False
     app.config["SECURITY_CSRF_PROTECT_MECHANISHMS"] = []
