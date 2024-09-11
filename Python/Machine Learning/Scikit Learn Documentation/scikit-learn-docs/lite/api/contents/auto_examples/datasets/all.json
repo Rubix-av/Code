@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2024-09-11T09:37:37.138467Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-09-11T09:37:32.810485Z",
+      "mimetype": null,
+      "name": "plot_digits_last_image.ipynb",
+      "path": "auto_examples/datasets/plot_digits_last_image.ipynb",
+      "size": 2362,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2024-09-11T09:37:37.142467Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-09-11T09:37:32.810485Z",
+      "mimetype": null,
+      "name": "plot_iris_dataset.ipynb",
+      "path": "auto_examples/datasets/plot_iris_dataset.ipynb",
+      "size": 5260,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2024-09-11T09:37:37.142467Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-09-11T09:37:32.814485Z",
+      "mimetype": null,
+      "name": "plot_random_dataset.ipynb",
+      "path": "auto_examples/datasets/plot_random_dataset.ipynb",
+      "size": 3905,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2024-09-11T09:37:37.142467Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2024-09-11T09:37:32.814485Z",
+      "mimetype": null,
+      "name": "plot_random_multilabel_dataset.ipynb",
+      "path": "auto_examples/datasets/plot_random_multilabel_dataset.ipynb",
+      "size": 4821,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2024-09-11T09:37:37.142467Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2024-09-11T09:37:37.142467Z",
+  "mimetype": null,
+  "name": "datasets",
+  "path": "auto_examples/datasets",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}
