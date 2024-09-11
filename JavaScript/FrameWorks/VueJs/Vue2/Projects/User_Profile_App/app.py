@@ -13,18 +13,22 @@ def create_app():
     db.init_app(app)
 
     with app.app_context():
-        from models import User, Roles
+        from models import User, Role
         from flask_security import SQLAlchemyUserDatastore
 
-        user_datastore = SQLAlchemyUserDatastore(db, User, Roles)
+        user_datastore = SQLAlchemyUserDatastore(db, User, Role)
 
         security.init_app(app, user_datastore)
 
         db.create_all()
         create_data(user_datastore)
 
-    views.create_view(app)
+    views.create_view(app, user_datastore)
     
+    app.config["WTF_CSRF_CHECK_DEFAULT"] = False
+    app.config["SECURITY_CSRF_PROTECT_MECHANISHMS"] = []
+    app.config["SECURITY_CSRF_IGNORE_UNAUTH_ENDPOINTS"] = True
+
     return app
 
 if __name__ == "__main__":

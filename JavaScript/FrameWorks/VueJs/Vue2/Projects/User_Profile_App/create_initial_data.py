@@ -1,4 +1,4 @@
-from flask_security import SQLAlchemyUserDatastore
+from flask_security.datastore import SQLAlchemyUserDatastore
 from flask_security.utils import hash_password
 from extensions import db
 
@@ -22,5 +22,3 @@ def create_data(user_datastore:SQLAlchemyUserDatastore):
         user_datastore.create_user(email='inst@iitm.ac.in', password=hash_password('pass'), active=True, roles=['inst'])
 
     db.session.commit()
-
-    
