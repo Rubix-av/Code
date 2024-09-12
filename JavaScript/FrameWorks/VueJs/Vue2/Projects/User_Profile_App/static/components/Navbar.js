@@ -4,6 +4,7 @@ const Navbar = {
     <router-link to='/'>Home</router-link>
     <router-link to='/login'>Login</router-link>
     <router-link to='/signup'>Signup</router-link>
+    <router-link to='/dashboard'>Dashboard</router-link>
     <a v-bind:href="url">Logout</a>
     </nav>
     `,

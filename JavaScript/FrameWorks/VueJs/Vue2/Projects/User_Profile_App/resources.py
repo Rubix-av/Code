@@ -7,7 +7,6 @@ api = Api(prefix='/api')
 
 parser = reqparse.RequestParser() # convert json data to dictionary
 
-parser.add_argument('id', type=int)
 parser.add_argument('topic', type=str)
 parser.add_argument('content', type=str)
 parser.add_argument('creator_id', type=int)
@@ -29,7 +28,7 @@ class StudyMaterials(Resource):
     
     def post(self):
         args = parser.parse_args()
-        study_resource = StudyResource(id=args.id, topic=args.topic, content=args.content, creator_id=args.creator_id)
+        study_resource = StudyResource(topic=args.topic, content=args.content, creator_id=args.creator_id)
         db.session.add(study_resource)
         db.session.commit()
         return {"message": "resource created"}, 200
