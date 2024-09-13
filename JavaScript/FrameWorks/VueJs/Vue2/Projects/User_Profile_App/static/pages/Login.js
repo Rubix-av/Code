@@ -25,7 +25,7 @@ const Login = {
 	methods: {
 			async submitInfo() {
 					
-					const url = window.location.origin
+			const url = window.location.origin
 					const res = await fetch(url + '/login', {
 							method: 'POST',
 							headers: {

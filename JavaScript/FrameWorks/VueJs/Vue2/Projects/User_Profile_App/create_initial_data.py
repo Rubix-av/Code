@@ -8,7 +8,7 @@ def create_data(user_datastore:SQLAlchemyUserDatastore):
     # create roles
     user_datastore.find_or_create_role(name='admin', description="Administrator")
     user_datastore.find_or_create_role(name='inst', description="Instructor")
-    user_datastore.find_or_create_role(name='stud', description="Student")
+    user_datastore.find_or_create_role(name='spon', description="Sponsor")
 
     # create user data
 
@@ -20,5 +20,7 @@ def create_data(user_datastore:SQLAlchemyUserDatastore):
 
     if not user_datastore.find_user(email='inst@iitm.ac.in'):
         user_datastore.create_user(email='inst@iitm.ac.in', password=hash_password('pass'), active=True, roles=['inst'])
+
+    
 
     db.session.commit()
