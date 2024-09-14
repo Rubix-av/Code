@@ -12,26 +12,33 @@ def create_view(app, user_datastore : SQLAlchemyUserDatastore):
     @app.route('/user-login', methods=["POST"])
     def user_login():
 
+        # store the json object inside "data" as python dict.
         data = request.get_json()
         email = data.get('email')
         password = data.get('password')
 
+        # checks if there was no email or password entered
         if not email or not password:
             return jsonify({"message": "not valid email or password"}), 404
         
+        # tries to obtain user with the email passed to this endpoint
         user = user_datastore.find_user(email=email)
 
+        # if user doesn't exist, then returns an error
         if not user:
             return jsonify({"message": "invalid user"}), 404
         
+        # checks password for the email and returns json object with status code 200
         if verify_password(password, user.password):
             return jsonify({"token": user.get_auth_token(), 'role': user.roles[0].name, "id": user.id, "email": user.email}), 200
 
-    
     @app.route('/register', methods=["POST"])
     def register():
-        data = request.get_json()
 
+        # stores the json object sent to this route in "data" as a python dict.
+        data = request.get_json()
+        
+        # retrievs email & password from data dict.
         email = data.get('email')
         password = data.get('password')
         role = data.get('role')
@@ -60,7 +67,7 @@ def create_view(app, user_datastore : SQLAlchemyUserDatastore):
 
     # profile
     @app.route('/profile')
-    @auth_required('session', 'token')
+    @auth_required('token')
     def profile():
         return render_template_string(
             """
