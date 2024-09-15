@@ -75,7 +75,6 @@ def create_view(app, user_datastore : SQLAlchemyUserDatastore):
                 <p> Welcome, {{current_user.email}} </p>
                 <a href="/logout">logout</a>
             """
-
         )
     
     @app.route('/inst-dashboard')
