@@ -10,3 +10,4 @@ __pycache__/
 /frontend/dist/
 /frontend/frontend/dist/
 node_modules/
+.idea/

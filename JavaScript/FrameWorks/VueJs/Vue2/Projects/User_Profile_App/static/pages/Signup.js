@@ -12,7 +12,8 @@ const Signup = {
           <input v-model="password" type="password" class="form-control" placeholder="Password" required/>
         </div>
         <div class="form-group mb-4">
-          <select v-model="role" class="form-control">
+          <select v-model="role" class="form-control" id="roleSelect">
+            <option value="" disabled>Select Role</option>
             <option value="stud">Student</option>
             <option value="inst">Instructor</option>
           </select>
@@ -56,7 +57,6 @@ const Signup = {
         // Handle sign up error
       }
     },
-  },
+  },  
 };
-
 export default Signup;

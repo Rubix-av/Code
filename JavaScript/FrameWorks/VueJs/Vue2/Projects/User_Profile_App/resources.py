@@ -19,13 +19,14 @@ study_materials_fields = {
 }
 
 class StudyMaterials(Resource):
-    @auth_required()
-    @marshal_with(study_materials_fields)
 
+    @auth_required('token')
+    @marshal_with(study_materials_fields)
     def get(self):
         all_resources = StudyResource.query.all()
         return all_resources
     
+    @auth_required('token')
     def post(self):
         args = parser.parse_args()
         study_resource = StudyResource(topic=args.topic, content=args.content, creator_id=args.creator_id)

@@ -2,7 +2,7 @@ import router from "../utils/router.js";
 import store from "../utils/store.js";
 
 const Login = {
-	template: `
+  template: `
 	<div class="d-flex justify-content-center align-items-center vh-100">
 			<div class="card shadow p-4 border rounded-3 ">
 					<h3 class="card-title text-center mb-4">Login</h3>
@@ -16,32 +16,35 @@ const Login = {
 			</div>
 	</div>
 	`,
-	data() {
-			return {
-					email: "",
-					password: "",
-			};
-	},
-	methods: {
-			async submitInfo() {
-					
-			const url = window.location.origin
-					const res = await fetch(url + '/login', {
-							method: 'POST',
-							headers: {
-									"Content-Type": "application/json"
-							},
-							body: JSON.stringify({ email: this.email, password: this.password })
-					});
-			if (res.ok) {
-						store.commit('setLogin')
-						router.push('/profile');							
-					}
-					else {
-							console.error("Login Failed");
-					}
-			}
-	}
-}
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    async submitInfo() {
+      const url = window.location.origin;
+      const res = await fetch(url + "/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: this.email, password: this.password }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        sessionStorage.setItem("token", data.token);
+        sessionStorage.setItem("role", data.role);
+        sessionStorage.setItem("email", data.email);
+        sessionStorage.setItem("id", data.id);
+
+        router.push("/dashboard");
+      } else {
+        console.error("Login Failed");
+      }
+    },
+  },
+};
 
 export default Login;
