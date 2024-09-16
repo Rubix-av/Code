@@ -3,7 +3,7 @@ import Login from "../pages/Login.js";
 import Signup from "../pages/Signup.js";
 
 const routes = [
-    {path:"/home", component: Home},
+    {path:"/", component: Home},
     {path:"/login", component: Login},
     {path:"/signup", component: Signup}
 ]
