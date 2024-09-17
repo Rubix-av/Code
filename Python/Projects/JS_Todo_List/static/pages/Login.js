@@ -1,4 +1,5 @@
 import router from "../utils/router.js";
+import store from "../utils/store.js";
 
 const Login = {
   template: `
@@ -30,7 +31,7 @@ const Login = {
 
   methods: {
     async login() {
-      const url = window.location.origin;
+      const url = store.state.origin;
       const res = await fetch(url + "/user-login", {
         method: "POST",
         headers: {
@@ -44,6 +45,15 @@ const Login = {
 
       if (res.ok) {
         console.log("Login Successful!");
+
+        const data = await res.json();
+        console.log("this is the login data", data);
+
+        store.commit('setId', data.id);
+        store.commit('setRole', data.role);
+        store.commit('setEmail', data.email);
+        store.commit('setToken', data.token);
+
         router.push("/profile");
       } else {
         console.error("Login Failed!");

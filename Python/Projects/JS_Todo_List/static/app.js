@@ -1,4 +1,5 @@
 import router from "./utils/router.js"
+import store from "./utils/store.js"
 import Navbar from "./components/Navbar.js"
 
 new Vue({
@@ -10,6 +11,7 @@ new Vue({
         </div>
     `,
     router,
+    store,
     components: {
         Navbar
     }

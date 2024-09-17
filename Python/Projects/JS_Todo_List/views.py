@@ -26,7 +26,9 @@ def create_view(app, user_datastore : SQLAlchemyUserDatastore):
         
         if verify_password(password, user.password):
             return jsonify({"token": user.get_auth_token(), "role": user.roles[0].name, "id": user.id, "email": user.email}), 200
-        
+        else:
+            return jsonify({"message": "incorrect password"})
+
     @app.route('/signup', methods=["POST"])
     def signup():
         data = request.get_json()
