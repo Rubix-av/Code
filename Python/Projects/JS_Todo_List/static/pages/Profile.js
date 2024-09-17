@@ -1,5 +1,5 @@
 const Profile = {
-    template: `<div>This is the Profile Page</div>`
+    template: `<h1>This is the Profile Page</h1>`
 }
 
 export default Profile;
