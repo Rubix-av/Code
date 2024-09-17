@@ -1,5 +1,5 @@
 const Navbar = {
-    template: `
+  template: `
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">TodoJS</a>
@@ -9,7 +9,7 @@ const Navbar = {
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <router-link to="/" tag="a" class="nav-link">Home</router-link>
-                        <router-link to="/login" tag="a" class="nav-link">Login</router-link>
+                        <router-link to="/user-login" tag="a" class="nav-link">Login</router-link>
                         <router-link to="/signup" tag="a" class="nav-link">Signup</router-link>
                         <router-link to="/profile" tag="a" class="nav-link">Profile</router-link>
                     </div>
