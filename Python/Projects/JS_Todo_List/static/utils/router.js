@@ -4,14 +4,14 @@ import Signup from "../pages/Signup.js";
 import Profile from "../pages/Profile.js";
 
 const routes = [
-    {path:"/", component: Home},
-    {path:"/login", component: Login},
-    {path:"/signup", component: Signup},
-    {path:"/profile", component: Profile},
-]
+  { path: "/", component: Home },
+  { path: "/user-login", component: Login },
+  { path: "/signup", component: Signup },
+  { path: "/profile", component: Profile },
+];
 
 const router = new VueRouter({
-    routes
-})
+  routes,
+});
 
 export default router;

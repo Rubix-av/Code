@@ -30,18 +30,24 @@ const Login = {
 
   methods: {
     async login() {
-        const url = window.location.origin;
-        const res = await fetch(url + '/login', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({email: this.email, password: this.password}),
-        });
-        if (res.ok){
-            const data = await res.json();
-            router.push('/profile')
-        }
+      const url = window.location.origin;
+      const res = await fetch(url + "/user-login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password,
+        }),
+      });
+
+      if (res.ok) {
+        console.log("Login Successful!");
+        router.push("/profile");
+      } else {
+        console.error("Login Failed!");
+      }
     },
   },
 };
