@@ -36,6 +36,7 @@ def create_view(app, user_datastore : SQLAlchemyUserDatastore):
         email = data.get("email")
         password = data.get("password")
         role = data.get("role")
+        id = data.get('id')
 
         if not email or not password or role not in ["user", "admin"]:
             return jsonify({"message": "invalid input"})
