@@ -1,5 +1,5 @@
 import router from "../utils/router.js";
-import store from "../utils/store.js";
+// import store from "../utils/store.js";
 
 const Login = {
   template: `
@@ -31,7 +31,7 @@ const Login = {
 
   methods: {
     async login() {
-      const url = store.state.origin;
+      const url = this.$store.state.origin;
       const res = await fetch(url + "/user-login", {
         method: "POST",
         headers: {
@@ -45,14 +45,14 @@ const Login = {
 
       if (res.ok) {
         console.log("Login Successful!");
-
         const data = await res.json();
-        console.log("this is the login data", data);
 
-        store.commit('setId', data.id);
-        store.commit('setRole', data.role);
-        store.commit('setEmail', data.email);
-        store.commit('setToken', data.token);
+        sessionStorage.setItem('token', data.token);
+        sessionStorage.setItem('role', data.role);
+        sessionStorage.setItem('email', data.email);
+        sessionStorage.setItem('id', data.id);
+
+        this.$store.commit('setLogin')
 
         router.push("/profile");
       } else {

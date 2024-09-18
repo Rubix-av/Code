@@ -1,25 +1,21 @@
 const store = new Vuex.Store({
     state: {
       origin: window.location.origin,
-      token: "",
-      role: "",
-      email: "",
-      id: ""
+      loggedIn: false,
+      token: sessionStorage.getItem('token'),
+      role: sessionStorage.getItem('role'),
+      email: sessionStorage.getItem('email'),
+      id: sessionStorage.getItem('id')
     },
+    
     mutations: {
-      setId(state, payload) {
-        state.id = payload;
+      setLogin(state) {
+        state.loggedIn = true;
       },
-      setEmail(state, payload) {
-        state.email = payload;
+      logout(state) {
+        state.loggedIn = false;
       },
-      setRole(state, payload) {
-        state.role = payload;
-      },
-      setToken(state, payload) {
-        state.token = payload;
-      }
-    }
+    },
   });
   
   export default store;
