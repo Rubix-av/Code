@@ -16,7 +16,7 @@ const Profile = {
   data() {
     return {
       allTodos: [],
-    } 
+    }
   },
 
   async mounted() {
@@ -27,10 +27,11 @@ const Profile = {
         "Authentication-Token": this.$store.state.token
       },
     });
+    console.log("One")
     const data = await res.json();
+    console.log("Two")
     this.allTodos = data;
   }
-
 };
 
 export default Profile;
