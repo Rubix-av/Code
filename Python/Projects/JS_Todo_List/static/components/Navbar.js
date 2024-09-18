@@ -1,3 +1,5 @@
+import router from "../utils/router.js";
+
 const Navbar = {
   template: `
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
@@ -8,15 +10,38 @@ const Navbar = {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <router-link to="/" tag="a" class="nav-link">Home</router-link>
-                        <router-link to="/user-login" tag="a" class="nav-link">Login</router-link>
-                        <router-link to="/signup" tag="a" class="nav-link">Signup</router-link>
-                        <router-link to="/profile" tag="a" class="nav-link">Profile</router-link>
-                    </div>
+                    <router-link to="/" tag="a" class="nav-link">Home</router-link>
+                    <router-link v-if="!state.loggedIn" to="/user-login" tag="a" class="nav-link">Login</router-link>
+                    <router-link v-if="!state.loggedIn" to="/signup" tag="a" class="nav-link">Signup</router-link>
+                    <router-link v-if="state.loggedIn" to="/profile" tag="a" class="nav-link">Profile</router-link>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a v-if="state.loggedIn" @click="logout" class="nav-link text-danger fw-bold">Logout</a>
+                </div>
                 </div>
             </div>
         </nav>
     `,
+
+    data() {
+        return {
+            url: this.$store.state.origin + '/logout'
+        }
+    },
+
+    computed: {
+        state() {
+            return this.$store.state
+        }
+    },
+
+    methods: {
+        logout() {
+            sessionStorage.clear();
+            this.$store.commit('logout')
+            router.push('/');
+        }
+    }
 };
 
 export default Navbar;

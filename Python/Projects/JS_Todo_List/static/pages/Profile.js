@@ -1,5 +1,3 @@
-import store from "../utils/store.js";
-
 const Profile = {
   template: `
     <div>
@@ -18,15 +16,15 @@ const Profile = {
   data() {
     return {
       allTodos: [],
-    }
+    } 
   },
 
   async mounted() {
-    const origin = store.state.origin;
-    console.log("token: ", store.state.token);
+    const origin = this.$store.state.origin;
+    console.log("token: ", this.$store.state.token);
     const res = await fetch(origin + '/api/todos', {
       headers: {
-        "Authentication-Token": "store.state.token"
+        "Authentication-Token": this.$store.state.token
       },
     });
     const data = await res.json();
