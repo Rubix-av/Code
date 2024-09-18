@@ -1,7 +1,7 @@
 import router from "../utils/router.js";
 
 const Navbar = {
-  template: `
+    template: `
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">TodoJS</a>
@@ -38,7 +38,11 @@ const Navbar = {
     methods: {
         logout() {
             sessionStorage.clear();
+            
+            console.log(`Before clear ${this.$store.state.token}`)
             this.$store.commit('logout')
+            console.log(`After clear ${this.$store.state.token}`)
+            
             router.push('/');
         }
     }

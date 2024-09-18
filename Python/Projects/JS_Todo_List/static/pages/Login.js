@@ -47,6 +47,7 @@ const Login = {
         console.log("Login Successful!");
         const data = await res.json();
 
+        this.$store.commit('setToken', data.token);
         sessionStorage.setItem('token', data.token);
         sessionStorage.setItem('role', data.role);
         sessionStorage.setItem('email', data.email);
