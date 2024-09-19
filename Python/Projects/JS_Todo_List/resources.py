@@ -20,8 +20,8 @@ todo_fields = {
 class Todos(Resource):
     @auth_required('token')
     @marshal_with(todo_fields)
-    def get(self):
-        allTodos = Todo.query.all()
+    def get(self, id):
+        allTodos = Todo.query.filter_by(user_id=id).all()
 
         if not allTodos:
             return jsonify({"message": "No todos found"}), 404  # Return a 404 or appropriate status code
