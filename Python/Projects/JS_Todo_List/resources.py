@@ -20,13 +20,18 @@ todo_fields = {
 class Todos(Resource):
     @auth_required('token')
     @marshal_with(todo_fields)
-    def get(self, id):
-        allTodos = Todo.query.filter_by(user_id=id).all()
+    def get(self, id=None):
+        if id:
+            allTodos = Todo.query.filter_by(user_id=id).all()
+            if not allTodos:
+                return []
+            return allTodos
 
-        if not allTodos:
-            return jsonify({"message": "No todos found"}), 404  # Return a 404 or appropriate status code
-
-        return allTodos
+        else:
+            allTodos = Todo.query.all()
+            if not allTodos:
+                return []
+            return allTodos
 
     @auth_required('token')
     def post(self):
@@ -36,4 +41,4 @@ class Todos(Resource):
         db.session.commit()
         return jsonify({"message": "todo created"})
 
-api.add_resource(Todos, '/todos')
+api.add_resource(Todos, '/todos/<int:id>', '/todos')

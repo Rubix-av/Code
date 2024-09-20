@@ -21,10 +21,13 @@ const Profile = {
 
   async mounted() {
     const origin = this.$store.state.origin;
-    console.log("token: ", this.$store.state.token);
-    const res = await fetch(origin + '/api/todos', {
+    const token = sessionStorage.getItem('token');
+    const user_id = Number(sessionStorage.getItem('id'));
+
+    console.log("token: ", token);
+    const res = await fetch(origin + `/api/todos/${user_id}`, {
       headers: {
-        "Authentication-Token": this.$store.state.token
+        "Authentication-Token": token
       },
     });
     console.log("One")
