@@ -34,11 +34,17 @@ class Todos(Resource):
             return allTodos
 
     @auth_required('token')
-    def post(self):
-        args = parser.parse_args()
-        todo = Todo(user_id=1, **args)
-        db.session.add(todo)
-        db.session.commit()
-        return jsonify({"message": "todo created"})
+    def post(self, id):
+        try:
+            args = parser.parse_args()        
+            todo = Todo(user_id=id, **args)
 
+            db.session.add(todo)
+            db.session.commit()
+        except:
+            db.session.rollback()
+            return {"message": "creating todo failed", "todo_id": todo.id}, 420
+
+        return {"message": "todo created", "todo_id": todo.id}, 200    
+    
 api.add_resource(Todos, '/todos/<int:id>', '/todos')

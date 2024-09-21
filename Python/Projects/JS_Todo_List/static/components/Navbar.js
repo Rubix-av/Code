@@ -14,6 +14,7 @@ const Navbar = {
                     <router-link v-if="!state.loggedIn" to="/user-login" tag="a" class="nav-link">Login</router-link>
                     <router-link v-if="!state.loggedIn" to="/signup" tag="a" class="nav-link">Signup</router-link>
                     <router-link v-if="state.loggedIn" to="/profile" tag="a" class="nav-link">Profile</router-link>
+                    <router-link v-if="state.loggedIn" to="/todo" tag="a" class="nav-link">Todo</router-link>
                 </div>
                 <div class="navbar-nav ms-auto">
                     <a v-if="state.loggedIn" @click="logout" class="nav-link text-danger fw-bold">Logout</a>
