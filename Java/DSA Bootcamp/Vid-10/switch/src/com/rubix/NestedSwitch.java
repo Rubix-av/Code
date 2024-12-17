@@ -7,6 +7,7 @@ public class NestedSwitch {
         Scanner in = new Scanner(System.in);
         int empId = in.nextInt();
         String department = in.next();
+        int[] temp = new int[];
 
         switch (empId) {
             case 1:
