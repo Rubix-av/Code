@@ -19,8 +19,11 @@ public class Input {
             arr[i] = in.nextInt();
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+        // Modify array at index 1
+        // arr[1] = 99;
+
+        for (int j : arr) {
+            System.out.println(j);
         }
     }
 }
