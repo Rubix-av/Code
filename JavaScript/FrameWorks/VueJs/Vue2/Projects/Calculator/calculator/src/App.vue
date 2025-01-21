@@ -117,6 +117,7 @@ html {
   justify-content: center;
   margin: auto;
   border-radius: 7px;
+  filter: drop-shadow(10px 10px 20px rgb(0, 208, 255));
 }
 
 #row {
