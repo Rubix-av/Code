@@ -1,0 +1,6 @@
+How to approach:
+
+1. Outermost loop for number of rows in pattern
+2. Identify for every row number:
+    * How many columns are there
+    * Types of element in column
