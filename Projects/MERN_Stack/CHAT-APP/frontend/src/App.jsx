@@ -8,21 +8,23 @@ import ProfilePage from "./pages/ProfilePage"
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "./store/useAuthStore"
+import { useThemeStore } from "./store/useThemeStore"
 import { useEffect } from 'react';
 
 import { Loader } from "lucide-react";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
 
   // retrieves these variables from the store
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
 
+  const { theme } = useThemeStore();
+
   // similar to onMount, checkAuth() function is called
   useEffect(() => {
     checkAuth()
   }, [checkAuth])
-
-  console.log({authUser});
 
   if (isCheckingAuth && !authUser) return (
     <div className="flex items-center justify-center h-screen">
@@ -31,7 +33,7 @@ const App = () => {
   )
 
   return (
-    <div>
+    <div data-theme={theme}>
 
       <Navbar />
 
@@ -43,6 +45,7 @@ const App = () => {
         <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
       </Routes>
 
+      <Toaster />
     </div>
   )
 }
