@@ -8,3 +8,4 @@ npm i react-router-dom react-hot-toast
 npm create vite@latest . -- --template react
 npm install tailwindcss @tailwindcss/vite
 npm i -D daisyui@latest
+npm i zustand
