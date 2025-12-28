@@ -1,6 +1,10 @@
 LinuxConfig/
 GitHub/
 .env/
+.venv/
+.env
+*.pyc
+uv.lock
 __pycache__/
 *.py[cod]
 *$py.class
