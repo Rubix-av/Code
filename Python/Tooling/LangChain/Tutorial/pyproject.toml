@@ -1,0 +1,29 @@
+[project]
+name = "tutorial"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "arxiv>=2.4.0",
+    "bs4>=0.0.2",
+    "chromadb>=0.5.0",
+    "faiss-cpu>=1.13.2",
+    "fastapi==0.110.0",
+    "httpx==0.26.0",
+    "ipykernel>=7.1.0",
+    "langchain==0.1.16",
+    "langchain-community==0.0.33",
+    "langchain-core==0.1.48",
+    "langchain-google-genai==0.0.11",
+    "langchain-openai==0.1.7",
+    "langchainhub>=0.1.21",
+    "langserve==0.0.41",
+    "langsmith>=0.1.147",
+    "pypdf>=6.5.0",
+    "python-dotenv==1.0.1",
+    "sse-starlette==2.0.0",
+    "streamlit>=1.52.2",
+    "uvicorn==0.29.0",
+    "wikipedia>=1.4.0",
+]
