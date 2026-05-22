@@ -25,21 +25,19 @@ class Solution:
       high = len(nums) - 1
       
       while mid <= high:
-        
         if nums[mid] == 0:
           nums[low], nums[mid] = nums[mid], nums[low]
-          low = low + 1
           mid = mid + 1
+          low = low + 1
           
         elif nums[mid] == 1:
           mid = mid + 1
-          
+        
         else:
           nums[mid], nums[high] = nums[high], nums[mid]
           high = high - 1
           
       return nums
-    
     
 arr1 = [0, 1, 1, 0, 0, 1]
 arr2 = [2, 0, 1, 2, 2, 1, 0, 2, 0, 1]
